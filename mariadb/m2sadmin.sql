@@ -1,3 +1,10 @@
+-- MariaDB dump 10.19  Distrib 10.5.10-MariaDB, for Linux (x86_64)
+--
+-- Host: localhost    Database: m2sadmin
+-- ------------------------------------------------------
+-- Server version	10.5.10-MariaDB-debug
+-- CREATE DATABASE m2sadmin;
+-- GRANT ALL ON m2sadmin.* TO 'david'@'localhost';
 USE m2sadmin;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
