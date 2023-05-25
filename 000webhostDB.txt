@@ -1,8 +1,0 @@
-FTP
-Host	files.000webhost.com
-Nombre de usuario	m2storage
-
-
-id20371566_m2sadmin
-id20371566_david
-M2S_2023_m2s
