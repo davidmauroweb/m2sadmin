@@ -1,5 +1,5 @@
 # m2sadmin
-sudo cocker-compose up
+sudo cocker-compose up<br>
 http://localhost:8000
 
 # Agregar administradores
