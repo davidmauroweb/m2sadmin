@@ -1,5 +1,0 @@
-FROM mariadb
-FROM ifferangles/cockpit
-COPY m2sadmin.sql /root/
-
-RUN sudo docker exec -i mdbm2 bash -c 'exec mariadb -uroot -p"$MARIADB_ROOT_PASSWORD"' < m2sadmin.sql 
