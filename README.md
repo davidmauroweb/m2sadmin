@@ -1,5 +1,5 @@
 # m2sadmin
-renombrar ENV cono .env<br>
+renombrar ENV como .env<br>
 sudo cocker-compose up<br>
 http://localhost:8000
 
