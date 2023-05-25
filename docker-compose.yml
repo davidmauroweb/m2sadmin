@@ -1,0 +1,52 @@
+version: '1'
+services:
+  phpm2:
+    build:
+      args:
+        user: david
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: m2sadmin
+    container_name: m2s
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - bridge
+
+  db:
+    image: mariadb
+    container_name: mdbm2
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./mariadb:/docker-entrypoint-initdb.d
+    networks:
+      - bridge
+
+
+  nginx:
+    image: nginx:1.17-alpine
+    container_name: ngxm2
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose:/etc/nginx/conf.d
+    networks:
+      - bridge
+
+networks:
+  bridge:
+    driver: bridge
+
+
