@@ -22,3 +22,5 @@ RUN echo "# Subdirectorio donde va el proyecto"
 WORKDIR /var/www
 
 USER $user
+
+# sudo docker exec -i $contenedor sh -c 'mysql -u${DB_USERNAME} -p${DB_PASSWORD}' < mariadb/m2s.sql 
