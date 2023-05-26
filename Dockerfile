@@ -21,6 +21,4 @@ RUN mkdir -p /home/$user/.composer && chown -R $user:$user /home/$user
 RUN echo "# Subdirectorio donde va el proyecto"
 WORKDIR /var/www
 
-RUN m2s:php artisan migrate:fresh
-
 USER $user

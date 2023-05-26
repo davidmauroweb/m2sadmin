@@ -7,8 +7,8 @@ services:
         uid: 1000
       context: ./
       dockerfile: Dockerfile
-    image: m2sadmin
-    container_name: m2s
+    image: davidmauroweb/m2storage
+    container_name: phpm2
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -47,5 +47,3 @@ services:
 networks:
   bridge:
     driver: bridge
-
-
