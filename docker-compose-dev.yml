@@ -1,17 +1,5 @@
-version: '3.8'
+version: '1'
 services:
-  ngxm2:
-    image: nginx:1.17-alpine
-    container_name: ngxm2
-    restart: unless-stopped
-    ports:
-      - 8000:80
-    volumes:
-      - ./:/var/www
-      - ./docker-compose:/etc/nginx/conf.d
-    networks:
-      - bridge
-
   mdbm2:
     image: mariadb:10.10
     container_name: mdbm2
@@ -23,21 +11,37 @@ services:
       MYSQL_USER: ${DB_USERNAME}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    networks:
+      - bridge
+
+  nginx:
+    image: nginx:1.17-alpine
+    container_name: ngxm2
+    restart: unless-stopped
+    ports:
+      - 8000:80
     volumes:
-      - mdbm2vol:/var/lib/mysql
+      - ./:/var/www
+      - ./docker-compose:/etc/nginx/conf.d
     networks:
       - bridge
 
   phpm2:
     build:
+      args:
+        user: david
+        uid: 1000
       context: ./
       dockerfile: Dockerfile
-    image: davidmauroweb/m2storage:pro
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+    image: davidmauroweb/m2storage:dev
     container_name: phpm2
     restart: unless-stopped
     working_dir: /var/www/
-    ports:
-      - 9000:9000
+    volumes:
+      - ./:/var/www
     networks:
       - bridge
     depends_on:
@@ -48,5 +52,3 @@ services:
 networks:
   bridge:
     driver: bridge
-volumes:
-  mdbm2vol:

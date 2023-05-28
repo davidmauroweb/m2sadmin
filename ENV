@@ -1,7 +1,7 @@
 APP_NAME=M2StorageAdmin
-APP_ENV=local
+APP_ENV=production
 APP_KEY=base64:ilnt6prI+JKi8y9e0m3AZJ2pjzUoKPC2wvHCb8uhP3A=
-APP_DEBUG=true
+APP_DEBUG=false
 APP_URL=http://localhost:8000
 
 LOG_CHANNEL=stack
