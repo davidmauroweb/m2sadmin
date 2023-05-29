@@ -32,11 +32,11 @@ services:
         user: david
         uid: 1000
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-dev
     environment:
       - APP_ENV=local
       - APP_DEBUG=true
-    image: davidmauroweb/m2storage:dev
+    image: davidmauroweb/m2storage:dev1
     container_name: phpm2
     restart: unless-stopped
     working_dir: /var/www/
@@ -45,9 +45,7 @@ services:
     networks:
       - bridge
     depends_on:
-      mdbm2:
-        condition: service_started
-        restart: true
+      - mdnm2
 
 networks:
   bridge:

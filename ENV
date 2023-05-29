@@ -1,7 +1,7 @@
 APP_NAME=M2StorageAdmin
-APP_ENV=production
+APP_ENV=local
 APP_KEY=base64:ilnt6prI+JKi8y9e0m3AZJ2pjzUoKPC2wvHCb8uhP3A=
-APP_DEBUG=false
+APP_DEBUG=true
 APP_URL=http://localhost:8000
 
 LOG_CHANNEL=stack
@@ -12,8 +12,8 @@ DB_CONNECTION=mysql
 DB_HOST=mdbm2
 DB_PORT=3306
 DB_DATABASE=m2sadmin
-DB_USERNAME=david
-DB_PASSWORD=ClaveDavid
+DB_USERNAME=root
+DB_PASSWORD=ClaveRoot
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
